@@ -28,22 +28,18 @@ namespace Sitecore.Support.Commerce.Connect.CommerceServer
                 {
                     return string.Empty;
                 }
+                #region
+                //New code
                 if (field.Name.ToLower().StartsWith("ListPrice".ToLower()) || field.Name.ToLower().StartsWith("BasePrice".ToLower()))
                 {
                     var enUS = System.Globalization.CultureInfo.GetCultureInfo("en-US");
                     return ((decimal)source).ToString(enUS);
                 }
-
+                #endregion
                 return source.ToString();
             }
         }
 
-        /// <summary>
-        /// Converts the specified source to a string with the correct formatting.
-        /// </summary>
-        /// <param name="value">The Commerce item value.</param>
-        /// <param name="culture">The desired language / culture of the formatted results.</param>
-        /// <returns>String correctly formatted from the source.</returns>
         public virtual string Convert(object value, string culture)
         {
             if (value == System.DBNull.Value)
