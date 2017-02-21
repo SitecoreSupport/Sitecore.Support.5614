@@ -29,11 +29,9 @@ namespace Sitecore.Support.Commerce.Connect.CommerceServer
                     return string.Empty;
                 }
                 #region
-                //New code
-                if (field.Name.ToLower().StartsWith("ListPrice".ToLower()) || field.Name.ToLower().StartsWith("BasePrice".ToLower()))
+                if (source is decimal)
                 {
-                    var enUS = System.Globalization.CultureInfo.GetCultureInfo("en-US");
-                    return ((decimal)source).ToString(enUS);
+                    return ((decimal)source).ToString(System.Globalization.CultureInfo.InvariantCulture);
                 }
                 #endregion
                 return source.ToString();
