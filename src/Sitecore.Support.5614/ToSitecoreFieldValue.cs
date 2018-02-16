@@ -33,6 +33,10 @@ namespace Sitecore.Support.Commerce.Connect.CommerceServer
                 {
                     return ((decimal)source).ToString(System.Globalization.CultureInfo.InvariantCulture);
                 }
+                if (source is double)
+                {
+                    return ((double)source).ToString(System.Globalization.CultureInfo.InvariantCulture);
+                }
                 #endregion
                 return source.ToString();
             }
